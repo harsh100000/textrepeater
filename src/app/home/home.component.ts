@@ -12,9 +12,20 @@ export class HomeComponent {
   inputText: string = '';
   times: number = 10;
   outputText: string = '';
+  addSpace: boolean = false;
+  addNewline: boolean = false;
 
   repeat() {
-    this.outputText = Array(this.times).fill(this.inputText).join('\n');
+    let separator = '';
+
+    if (this.addSpace) {
+      separator = ' ';
+    }
+
+    if (this.addNewline) {
+      separator = '\n';
+    }
+    this.outputText = Array(this.times).fill(this.inputText).join(separator);
   }
 
   copyText() {
